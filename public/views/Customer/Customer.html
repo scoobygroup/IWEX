@@ -1,0 +1,128 @@
+<div class="container">
+    <h1>Customer Management</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <td class="col-lg-2"></td>
+            <td>
+                <div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input class="form-control" ng-model="searchText" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-search" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <td><span class="label label-default">First Name <span class="required">*</span></span></td>
+            <td><input class="form-control col-md-7 col-xs-12" ng-model="Customer.firstname" required="required"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Last Name <span class="required">*</span></span></td>
+            <td><input class="form-control col-md-7 col-xs-12" ng-model="Customer.lastname" required="required"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Birthdate <span class="required">*</span></span></td>
+            <td><input type="date" class="form-control col-md-7 col-xs-12" ng-model="Customer.birthdate" required="required"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Gender :</span></td>
+            <td><select class="form-control col-md-7 col-xs-12" placeholder="Select your gender..." ng-model="Customer.gender" required="required">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Email <span class="required">*</span></span></td>
+            <td><input type="email" class="form-control col-md-7 col-xs-12" ng-model="Customer.email" required="required"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Mobile Number <span class="required">*</span></span></td>
+            <td><input class="form-control col-md-7 col-xs-12" ng-model="Customer.mobilenumber" required="required"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Address <span class="required">*</span></span></td>
+            <td><input class="form-control col-md-7 col-xs-12" ng-model="Customer.address"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Country <span class="required">*</span></span></td>
+            <td><input class="form-control col-md-7 col-xs-12" ng-model="Customer.country" required="required"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Bank <span class="required">*</span></span></td>
+            <td><select class="form-control col-md-7 col-xs-12" placeholder="Select your bank..." ng-model="Customer.bank" required="required">
+                <option value="Commercial Bank">Commercial Bank</option>
+                <option value="Hatton National Bank">Hatton National Bank</option>
+                <option value="Peoples Bank">Peoples Bank</option>
+                <option value="Nation Trust Bank">Nation Trust Bank</option>
+                <option value="Bank of Ceylon">Bank of Ceylon</option>
+                <option value="Sampath Bank">Sampath Bank</option>
+                <option value="Seylan Bank">Seylan Bank</option>
+                <option value="DFCC Bank">DFCC Bank</option>
+                <option value="National Savings Bank">National Savings Bank</option>
+                <option value="Pan Asia Bank">Pan Asia Bank</option>
+                <option value="Hong Kong and Shanghai Bank">Hong Kong and Shanghai Bank</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Card Type <span class="required">*</span></span></td>
+            <td><select class="form-control col-md-7 col-xs-12" placeholder="Select your card type..." ng-model="Customer.cardtype" required="required">
+                <option value="MASTER">MASTER</option>
+                <option value="VISA">VISA</option>
+                <option value="AMERICAN EXPRESS">AMERICAN EXPRESS</option>
+            </select></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td><button class="btn btn-primary" ng-click="addCustomer(Customer)">Insert</button></td>
+            <td><button class="btn btn-info" ng-click="updateCustomer(Customer._id, Customer)">Update</button></td>
+            <td><button class="btn btn-primary" ng-Click="deselect()">Refresh</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table" border="1">
+        <thead>
+        <tr>
+            <th>FName</th>
+            <th>LName</th>
+            <th>Birth Date</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>Bank</th>
+            <th>Card</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="Customer in customerlist | filter:searchText">
+            <td>{{Customer.firstname}}</td>
+            <td>{{Customer.lastname}}</td>
+            <td>{{Customer.birthdate}}</td>
+            <td>{{Customer.gender}}</td>
+            <td>{{Customer.email}}</td>
+            <td>{{Customer.mobilenumber}}</td>
+            <td>{{Customer.address}}</td>
+            <td>{{Customer.country}}</td>
+            <td>{{Customer.bank}}</td>
+            <td>{{Customer.cardtype}}</td>
+            <td><button class="btn btn-danger" ng-click="deleteCustomer(Customer._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="editCustomer(Customer._id)">Edit</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
