@@ -18,6 +18,10 @@ const StockRouter = require('./public/modules/Stock/stock.route');
 require('./public/modules/Stock/order.model.js');
 const OrderRouter = require('./public/modules/Stock/order.route');
 
+//customer Managment
+require('./public/modules/Customer/Customer.model.js');
+const CustomerRouter = require('./public/modules/Customer/Customer.route');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -27,6 +31,7 @@ app.use('/', express.static(__dirname + '/public'));
 
 app.use('/stocks', StockRouter);
 app.use('/orders', OrderRouter);
+app.use('/customers', CustomerRouter);
 
 mongoose.connect('mongodb://localhost:27017/studentProfile', err => {
     if (err) {
