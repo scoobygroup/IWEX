@@ -14,6 +14,9 @@ angular.module('StudentApp').config(['$routeProvider', '$locationProvider',
         }).when('/orderPage', {
             templateUrl: 'views/Stock/OrderManagment.html',
             controller: 'OrderController'
+        }).when('/customerPage', {
+            templateUrl: 'views/Customer/Customer.html',
+            controller: 'CustomerController'
         }).otherwise({
             redirectTo: '/'
         });
