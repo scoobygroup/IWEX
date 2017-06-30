@@ -1,0 +1,67 @@
+<div class="container">
+    <h1>Order Managment</h1>
+
+    <table class="table">
+        <thead>
+
+        </thead>
+        <tbody>
+        <tr>
+            <td><span class="label label-default">Order ID :</span></td>
+            <td><input class="form-control" ng-model="order1.ids"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Item Name :</span></td>
+            <td><input class="form-control" ng-model="order1.iname"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Department :</span></td>
+            <td><input class="form-control" ng-model="order1.department"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Employe Name :</span></td>
+            <td><input  class="form-control" ng-model="order1.ename"></td>
+        </tr>
+
+        <tr>
+            <td><span class="label label-default">Unit :</span></td>
+            <td><input  class="form-control" ng-model="order1.unit"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Quantity :</span></td>
+            <td><input class="form-control" ng-model="order1.quantity"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Request Date :</span></td>
+            <td><input type="date" class="form-control" ng-model="order1.rdate"></td>
+        </tr>
+
+        <td><button class="btn btn-primary" ng-click="addOrder(order1)">Add Order</button></td>
+        <td><button class="btn btn-info" ng-click="updateOrder(order1._id,order1)">Update</button>
+        </tbody>
+    </table>
+    <table class="table" border="1">
+        <thead>
+        <th>Order ID</th>
+        <th>Item Name</th>
+        <th>Department</th>
+        <th>Employe Name</th>
+        <th>Unit</th>
+        <th>Quantity</th>
+        <th>Request Date</th>
+        </thead>
+
+        <tr ng-repeat="order1 in orderlist">
+            <td>{{order1.ids}}</td>
+            <td>{{order1.iname}}</td>
+            <td>{{order1.department}}</td>
+            <td>{{order1.ename}}</td>
+            <td>{{order1.unit}}</td>
+            <td>{{order1.quantity}}</td>
+            <td>{{order1.rdate}}</td>
+            <td><button class="btn btn-danger" ng-click="deleteOrder(order1._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="editOrder(order1._id)">Edit</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

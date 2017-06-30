@@ -1,0 +1,59 @@
+    <div>
+        <div class="row">
+            <!--<div class="col-md-2">-->
+            <!--<button class="btn btn-default" ng-click="increase()">Increase</button>-->
+            <!--</div>-->
+            <!--<div class="col-md-2">-->
+            <!--<label class="form-control">{{count}}</label>-->
+            <!--</div>-->
+            <!--<div class="col-md-1 col-md-offset-11">
+                <button class="btn btn-default pull-right" data-toggle="collapse" data-target="#driverForm"
+                        aria-controls="driverForm">+
+                </button>
+            </div>-->
+        </div>
+        <div  id="driverForm" >
+
+
+            <br/><br/>
+            <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Name" ng-model="student99.name22">
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Age" ng-model="student99.age33">
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary pull-right" ng-click="addStudent(student99)">Add</button>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary pull-right" ng-click="updateStudent(student99._id,student99)">Update</button>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="student99 in students123">
+                    <td>{{student99._id}}</td>
+                    <td>{{student99.name22}}</td>
+                    <td>{{student99.age33}}</td>
+                    <td><button class="btn btn-primary pull-right" ng-click="editStudent(student99._id)">Edit</button></td>
+                    <td><button class="btn btn-primary pull-right" ng-click="deleteStudent(student99._id)">Delete</button></td>
+                    <td><a ng-href="comments/{{student99._id}}">Open</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+

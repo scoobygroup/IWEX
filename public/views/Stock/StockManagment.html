@@ -1,0 +1,103 @@
+<div class="container">
+    <h1>Stock Managment</h1>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td class="col-lg-2"></td>
+            <td>
+                <div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input class="form-control" ng-model="searchText" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-search" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table">
+        <thead>
+
+        </thead>
+        <tbody>
+        <tr>
+            <td><span class="label label-default">Item ID :</span></td>
+            <td><input class="form-control" ng-model="stock1.ids"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Category :</span></td>
+            <td>  <select class="form-control" ng-model="stock1.category">
+                <option value="" disabled selected>Select your option</option>
+                <option value="Vegitable">Vegitable</option>
+                <option value="Fruit">Fruit</option>
+                <option value="Meat">Meat</option>
+                <option value="Essence">Essence</option>
+                <option value="Spices">Spices</option>
+                <option value="Fish">Fish</option>
+                <option value="Beverage">Beverage</option>
+                <option value="Liquor">Liquor</option>
+                <option value="Other">Other</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Item Name :</span></td>
+            <td><input class="form-control" ng-model="stock1.name"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Recieve Date :</span></td>
+            <td><input type="date" class="form-control" ng-model="stock1.rdate"></td>
+        </tr>
+
+        <tr>
+            <td><span class="label label-default">Expiary Date :</span></td>
+            <td><input type="date" class="form-control" ng-model="stock1.edate"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Unit :</span></td>
+            <td><input class="form-control" ng-model="stock1.unit"></td>
+        </tr> 
+        <tr>
+            <td><span class="label label-default">Quantity :</span></td>
+            <td><input class="form-control" ng-model="stock1.quantity"></td>
+        </tr>
+        <tr>
+            <td><span class="label label-default">Total Cost :</span></td>
+            <td><input class="form-control" ng-model="stock1.cost"></td>
+        </tr>
+        <td><button class="btn btn-primary" ng-click="addStock(stock1)">Add stock</button></td>
+        <td><button class="btn btn-info" ng-click="updateStock(stock1._id,stock1)">Update</button>
+        </tbody>
+    </table>
+    <table class="table" border="1">
+        <thead>
+        <th>Item ID</th>
+        <th>Category</th>
+        <th>Item Name</th>
+        <th>Recieve Date</th>
+        <th>Expiary Date</th>
+        <th>Unit</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+        </thead>
+
+        <tr ng-repeat="stock1 in stocklist | filter:searchText">
+            <td>{{stock1.ids}}</td>
+            <td>{{stock1.category}}</td>
+            <td>{{stock1.name}}</td>
+            <td>{{stock1.rdate}}</td>
+            <td>{{stock1.edate}}</td>
+            <td>{{stock1.unit}}</td>
+            <td>{{stock1.quantity}}</td>
+            <td>{{stock1.cost}}</td>
+            <td><button class="btn btn-danger" ng-click="deleteStock(stock1._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="editStock(stock1._id)">Edit</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

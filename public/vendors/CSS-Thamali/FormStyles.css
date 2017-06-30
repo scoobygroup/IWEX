@@ -1,0 +1,140 @@
+.tabs
+{
+    list-style:none;
+}
+
+.a1
+{
+    text-decoration:none;
+    float:left;
+    height:40px;
+    line-height:40px;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #69686D;
+    font-size: 20px;
+    color: #000000;
+    font-family:Arial, Verdana, Sans-Serif;
+    text-decoration:none;
+    width: 218px;
+}
+
+a.a1:hover
+{
+    background-color: #000000;
+    color:#ffffff;
+    text-decoration: none;
+}
+
+.style14
+{
+    width: 112px;
+    height: 26px;
+}
+.style20
+{
+    width: 303px;
+    height: 35px;
+}
+.style21
+{
+    width: 89px;
+    height: 35px;
+}
+.style22
+{
+    width: 374px;
+    height: 35px;
+}
+.style23
+{
+    width: 137px;
+    height: 35px;
+}
+.style24
+{
+    width: 1319px;
+    height: 35px;
+}
+.style25
+{
+    width: 303px;
+    height: 22px;
+}
+.style26
+{
+    width: 89px;
+    height: 22px;
+}
+.style27
+{
+    width: 374px;
+    height: 22px;
+}
+.style28
+{
+    width: 137px;
+    height: 22px;
+}
+.style29
+{
+    width: 1319px;
+    height: 22px;
+}
+.style30
+{
+    width: 118px;
+    height: 26px;
+}
+.style36
+{
+    width: 303px;
+    height: 25px;
+}
+.style37
+{
+    width: 89px;
+    height: 25px;
+}
+.style38
+{
+    width: 374px;
+    height: 25px;
+}
+.style39
+{
+    width: 137px;
+    height: 25px;
+}
+.style40
+{
+    width: 1319px;
+    height: 25px;
+}
+.style41
+{
+    width: 303px;
+    height: 34px;
+}
+.style42
+{
+    width: 89px;
+    height: 34px;
+}
+.style43
+{
+    width: 374px;
+    height: 34px;
+}
+.style44
+{
+    width: 137px;
+    height: 34px;
+}
+.style45
+{
+    width: 1319px;
+    height: 34px;
+}
