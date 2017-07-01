@@ -1,0 +1,167 @@
+<!-- Bootstrap Core CSS -->
+<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link href="../vendors/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+
+
+<div id="wrapper">
+
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h2>Amend Reservation </h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <label style="width: 10px">   </label>
+                    <div class="form-group input-group">
+                        <label> Search Reservation ID  </label>
+                        <input   ng-model="searchText" class="form-control" placeholder="Enter Reservation ID"  >
+
+                    </div>
+
+                    <div class="col-lg-6" ng-controller="ReservationController">
+
+                        <form role="form" ng-submit="insertData()">
+
+                            <div class="form-group">
+                                <label>Reservation ID</label>
+                                <input class="form-control"type="text" ng-model="resChild._id" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Customer Name&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" placeholder="Enter text" id="name" name="name" required="required" ng-model="resChild.name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="email" placeholder="Enter text" id="email" name="email" title="Please enter valid Email Address eg:x@gmail.com"  required="required" ng-model="resChild.email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="nic">NIC &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" placeholder="Enter text" pattern="/^[0-9]{9}[vVxX]$/" id="nic" name="nic" required="required" ng-model="resChild.nic" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Check-In &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input  type="text" ng-model="resChild.checkin" class="form-control" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Check-Out &nbsp;</label>
+                                <input  text="text" ng-model="resChild.checkout" class="form-control" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="nights">Nights</label>
+                                <select class="form-control" id="nights" name="nights" required="required" ng-model="resChild.nights">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="noofrooms">No Of Rooms</label>
+                                <select class="form-control" id="noofrooms" name="noofrooms" required="required" ng-model="resChild.noofrooms">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+
+
+
+                            <button type="button" class="btn btn-default" ng-click="updateReservation(resChild._id,resChild)">Update </button>
+                            <button type="reset" class="btn btn-default">Reset </button>
+                            <!--<button type="button" class="btn btn-default" ng-click="refreshit()">Refresh</button>-->
+                        </form>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+
+                    <div style="height: 200px;"></div>
+                    <!-- /.col-lg-6 (nested) -->
+                    <br/><br/><br/><br/>
+                    <!--output-->
+                    <div class="row" style="width: 1000px">
+                        <!-- <input ng-model="searchText" class="col-lg-pull-6" >-->
+                        <br/><br/><br/><br/>
+
+                        <table class="table table-bordered" style="margin-left:30px">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>NIC </th>
+                                <th>Check-In</th>
+                                <th>Check-Out</th>
+                                <th>Nights</th>
+                                <th>No.of rooms</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="resChild in resParent | filter:searchText">
+                                <td>{{resChild._id}}</td>
+                                <td>{{resChild.name}}</td>
+                                <td>{{resChild.email}}</td>
+                                <td>{{resChild.nic}}</td>
+                                <td>{{resChild.checkin}}</td>
+                                <td>{{resChild.checkout}}</td>
+                                <td>{{resChild.nights}}</td>
+                                <td>{{resChild.noofrooms}}</td>
+                                <td><button class="btn btn-primary pull-right" ng-click="editReservation(resChild._id)">Edit</button></td>
+                                <td><button class="btn btn-primary pull-right" ng-click="deleteReservation(resChild._id)">Delete</button></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!--
+    </div>
+
+</div> -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../vendors/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendors/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendors/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
