@@ -5,22 +5,6 @@
 
 angular.module('StudentApp').factory('ReservationService', ['$http',
     function ($http) {
-        //const students = [];
-
-        // return {
-        //     get: () => drivers,
-        //     add: driver => {
-        //         driver._id = Date.now();
-        //         drivers.push(driver);
-        //     },
-        //     getById: id => {
-        //         return drivers.find(driver => driver._id === parseInt(id));
-        //     },
-        //     addComment: (id, comment) => {
-        //         const driver = drivers.find(driver => driver._id === parseInt(id));
-        //         driver.comments.push({text: comment.text});
-        //     }
-        // };
 
         return {
             get: () => $http.get('/newreservations').then(response => response.data),

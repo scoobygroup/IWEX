@@ -22,6 +22,12 @@ const OrderRouter = require('./public/modules/Stock/order.route');
 require('./public/modules/Customer/Customer.model.js');
 const CustomerRouter = require('./public/modules/Customer/Customer.route');
 
+//reservation
+require('./public/modules/reservation/reservation.model');
+require('./public/modules/reservation/roomdetails.model');
+const reservationRouter=require('./public/modules/Reservation/Reservation.route');
+const roomRouter=require('./public/modules/Reservation/roomdetails.route');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -32,14 +38,19 @@ app.use('/', express.static(__dirname + '/public'));
 app.use('/stocks', StockRouter);
 app.use('/orders', OrderRouter);
 app.use('/customers', CustomerRouter);
+app.use('/newreservations', reservationRouter);
+app.use('/roomdetailss', roomRouter);
 
-mongoose.connect('mongodb://localhost:27017/studentProfile', err => {
+mongoose.connect('mongodb://hotel:neomalperera<3@ds133261.mlab.com:33261/iwex', err => {
     if (err) {
         console.log(err);
         process.exit(1);
     }
-    console.log("connect to db");
+    else {
+        console.log('db connected');
+    }
 });
+
 
 app.get('/', (req, res, next) => {
     res.sendFile(__dirname + '/HomePage.html');

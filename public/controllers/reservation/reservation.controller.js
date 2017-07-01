@@ -5,7 +5,7 @@
 angular.module('StudentApp').controller('ReservationController', ['$scope', 'ReservationService',
     function ($scope, ReservationService) {
 
-
+        var amountofrooms;
         function getReservations() {
             // $scope.drivers = DriverService.get();
             ReservationService.get().then(reserv => {
@@ -59,6 +59,7 @@ angular.module('StudentApp').controller('ReservationController', ['$scope', 'Res
                 console.log('ordeer '+no);
                 $scope.getdrugordersucessmsg = 'No available rooms';
                 $scope.showAlert();
+                document.getElementById("addreservation").disabled = 'true';
             }
         }
 

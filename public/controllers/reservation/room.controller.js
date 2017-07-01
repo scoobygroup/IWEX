@@ -1,11 +1,11 @@
 /**
- * Created by User on 7/1/2017.
+ * Created by User on 5/1/2017.
  */
 
 angular.module('StudentApp').controller('RoomController', ['$scope', 'RoomService',
     function ($scope, RoomService) {
 
-        this.amountofrooms;
+        console.log(this.amountofrooms);
         function getRooms() {
             // $scope.drivers = DriverService.get();
             RoomService.get().then(reserv => {
@@ -72,7 +72,7 @@ angular.module('StudentApp').controller('RoomController', ['$scope', 'RoomServic
             RoomService.update(id,reserv).then(() => {
                 //$scope.resParent._id = reserv._id;
                 getRooms();
-                $scope.roomParent.type = reserv.type;
+                $scope.roomParent.roomtype = reserv.roomtype;
                 $scope.roomParent.price = reserv.price;
 
                 getRooms();

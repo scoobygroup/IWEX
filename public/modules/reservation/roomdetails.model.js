@@ -1,9 +1,4 @@
-/**
- * Created by User on 7/1/2017.
- */
-/**
- * Created by User on 6/29/2017.
- */
+
 /**
  * Created by User on 5/8/2017.
  */
@@ -15,7 +10,7 @@ const Schema = mongoose.Schema;
 
 const RoomSchema = new Schema ({
 
-        type: {
+        roomtype: {
             type: String,
             required: true
         },

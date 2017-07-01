@@ -37,6 +37,7 @@ Router.get('/:id', (req, res) => {
 Router.post('/', (req, res) => {
     const r = new RoomModel(req.body);
     r.save().then(r => {
+        console.log(req.body);
         res.sendStatus(200);
 
     }).catch(err => {
