@@ -1,0 +1,174 @@
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendors/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <!-- <div id="page-wrapper">-->
+
+    <!-- /.row -->
+    <!--<div class="row">-->
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h2>Make a Reservation </h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6" id="ReservationForm" >
+                        <form role="forms" >
+
+                            <!--Start Success message & Error Handling -->
+                            <div class="form-group">
+                                <div class="alert alert-danger alert-dismissable" ng-show="myfalse">
+                                    <strong>{{getdrugordersucessmsg}}</strong>
+                                </div>
+                                <div class="alert alert-success alert-dismissable" ng-show="mytrue">
+                                    <strong>{{getdrugordersucessmsg}}</strong>
+                                </div>
+                            </div>
+                            <!--  <div ng-show="error" class="text-danger">
+                                  <strong ng-bind="error">{{getsucessmsg}}</strong>
+                              </div>-->
+                            <!--End Success message & Error Handling -->
+                            <div class="form-group">
+                                <label for="name">Customer Name&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" placeholder="Enter text" id="name" name="name" required="required" ng-model="resChild.name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="email" placeholder="Enter text"  id="email" name="email" title="Please enter valid Email Address eg:x@gmail.com"  required="required" ng-model="resChild.email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="nic">NIC &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" placeholder="Enter text" pattern="\d{9}[V|v|x|X]" id="nic" title="Please enter valid NIC eg:123456789v" name="nic" required="required" ng-model="resChild.nic" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkin">Check-In &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="date" placeholder="Enter text" id="checkin" name="checkin" required="required" ng-model="resChild.checkin">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="checkout">Check-Out &nbsp;</label>
+                                <input type="date" placeholder="Enter text" id="checkout" name="checkout" required="required" ng-model="resChild.checkout">
+                            </div>
+                            <div class="form-group" align="center">
+                                <button type="button" class="btn btn-default" ng-click="checkDates(resChild.checkin, resChild.checkout)">Check Dates</button>
+                                <button type="button" id="setrooms" class="btn btn-default" ng-click="setRooms()">Set Rooms</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nights">Nights</label>
+                                <select class="form-control" id="nights" name="nights" required="required" ng-model="resChild.nights">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="noofrooms">No Of Rooms</label>
+                                <select class="form-control" id="noofrooms" name="noofrooms" required="required" ng-model="resChild.noofrooms">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+
+
+
+                            <button type="button" class="btn btn-default" ng-click="checkAvailability(resChild.noofrooms)">Check Availability</button>
+                            <button type="submit" class="btn btn-default" ng-click="addReservation(resChild)">Add Reservation</button>
+                            <button type="button" class="btn btn-default" ng-click="updateReservation(resChild._id,resChild)">Update </button>
+                            <button type="reset" class="btn btn-default">Reset</button>
+                        </form>
+                    </div>
+                    <div style="height: 200px;"></div>
+                    <!-- /.col-lg-6 (nested) -->
+                    <br/><br/><br/><br/>
+                    <!--output-->
+                    <div class="row" style="width: 1000px">
+                        <br/><br/><br/><br/>
+
+                        <table class="table table-bordered" style="margin-left:30px">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>NIC </th>
+                                <th>Check-In</th>
+                                <th>Check-Out</th>
+                                <th>Nights</th>
+                                <th>No.of rooms</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="resChild in resParent">
+                                <td>{{resChild._id}}</td>
+                                <td>{{resChild.name}}</td>
+                                <td>{{resChild.email}}</td>
+                                <td>{{resChild.nic}}</td>
+                                <td>{{resChild.checkin}}</td>
+                                <td>{{resChild.checkout}}</td>
+                                <td>{{resChild.nights}}</td>
+                                <td>{{resChild.noofrooms}}</td>
+                                <td><button class="btn btn-primary pull-right" ng-click="editReservation(resChild._id)">Edit</button></td>
+                                <td><button class="btn btn-primary pull-right" ng-click="deleteReservation(resChild._id)">Delete</button></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!--
+    </div>
+
+</div> -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../vendors/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendors/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendors/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+
