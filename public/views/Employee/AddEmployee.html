@@ -1,0 +1,191 @@
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <!-- <div id="page-wrapper">-->
+
+    <!-- /.row -->
+    <!--<div class="row">-->
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                Employee Registration
+            </div>
+
+
+
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-lg-3" >
+
+                    </div>
+                    <div class="col-lg-3" >
+
+                    </div>
+
+                    <div class="col-lg-3" >
+
+                    </div>
+                    <div class="col-lg-3" >
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+
+                    <form id="demo-form2" ng-submit="insertsupdata()"   data-parsley-validate class="form-horizontal form-label-left">
+
+
+                        <div class="form-group">
+                            <div class="alert alert-danger alert-dismissable" ng-show="myfalse">
+                                <strong>{{getsupsucessmsg}}</strong>
+                            </div>
+                            <div class="alert alert-success alert-dismissable" ng-show="mytrue">
+                                <strong>{{getsupsucessmsg}}</strong>
+                            </div>
+                        </div>
+                        <div ng-show="error" class="text-danger">
+                            <strong ng-bind="error">{{getsucessmsg}}</strong>
+                        </div>
+
+
+                        <div class="col-lg-6" >
+
+
+
+                            <div class="form-group">
+                                <label>Employee Name <span class="required">*</span></label>
+                                <input type="text" required="required" class="form-control" ng-model="employee.name">
+
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label>NIC <span class="required">*</span></label>
+                                <input type="text" class="form-control" required="required" placeholder="" ng-model="employee.nic">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Contact Number <span class="required">*</span></label>
+                                <input type="text" required="required" class="form-control" placeholder="" ng-model="employee.contactNo">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea class="form-control" rows="3" ng-model="employee.address"></textarea>
+                            </div>
+
+
+
+
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+
+
+                        <div class="col-lg-6">
+
+
+
+                            <div class="form-group">
+                                <label>Started Date</label>
+                                <input type="date" class="form-control" ng-model="employee.startDate">
+                            </div>
+
+                            <div class="form-group">
+                                <label>End Date     </label>
+                                <input type="date"  class="form-control" ng-model="employee.endDate">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Designation</label>
+                                <select class="form-control" ng-model="employee.designation">
+                                    <option>Manager</option>
+                                    <option>Accountant</option>
+                                    <option>Clerk</option>
+                                    <option>Chef</option>
+                                    <option>Servent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Basic Salary</label>
+                                <input class="form-control" placeholder="" ng-model="employee.basicSalary">
+                            </div>
+
+                            <button type="submit" class="btn btn-default"  ng-click="addEmployee(employee)">Submit</button>
+                            <button type="reset" class="btn btn-default" onclick="this.form.reset();">Reset</button>
+                            <button type="submit" class="btn btn-default"  ng-click="updateEmployee(employee._id,employee)">Update</button>
+
+
+                        </div>
+                    </form>
+
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+                <div class="row">
+
+                    <div >
+
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>NIC</th>
+                                <th>Contact No.</th>
+                                <th>Address</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Designation</th>
+                                <th>Salary</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="employee in employees | filter:searchText">
+                                <td>{{employee.name}}</td>
+                                <td>{{employee.nic}}</td>
+                                <td>{{employee.contactNo}}</td>
+                                <td>{{employee.address}}</td>
+                                <td>{{employee.startDate}}</td>
+                                <td>{{employee.endDate}}</td>
+                                <td>{{employee.designation}}</td>
+                                <td>{{employee.basicSalary}}</td>
+
+                                <td><button class="btn btn-primary pull-right" ng-click="editEmployee(employee._id)">Edit</button></td>
+
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
+
+
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!--
+    </div>
+
+</div> -->
+
+</div>

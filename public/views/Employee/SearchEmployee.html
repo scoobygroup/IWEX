@@ -1,0 +1,112 @@
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <!-- <div id="page-wrapper">-->
+
+    <!-- /.row -->
+    <!--<div class="row">-->
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                Search Employee
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-lg-3" >
+
+                </div>
+                <div class="col-lg-3" >
+
+                </div>
+
+                <div class="col-lg-3" >
+
+                </div>
+                <div class="col-lg-3" >
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
+                        <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                    </div>
+                </div>
+
+
+            </div>
+
+                <!-- /.row (nested) -->
+                <div class="row">
+
+
+                    <form id="demo-form2" ng-submit="insertsupdata()"  data-parsley-validate class="form-horizontal form-label-left">
+
+
+                        <div class="form-group">
+                            <div class="alert alert-danger alert-dismissable" ng-show="myfalse">
+                                <strong>{{getsupsucessmsg}}</strong>
+                            </div>
+                            <div class="alert alert-success alert-dismissable" ng-show="mytrue">
+                                <strong>{{getsupsucessmsg}}</strong>
+                            </div>
+                        </div>
+                        <div ng-show="error" class="text-danger">
+                            <strong ng-bind="error">{{getsucessmsg}}</strong>
+                        </div>
+
+                        <div >
+
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>NIC</th>
+                                    <th>Contact No.</th>
+                                    <th>Address</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Designation</th>
+                                    <th>Salary</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="employee in employees | filter:searchText">
+                                    <td>{{employee.name}}</td>
+                                    <td>{{employee.nic}}</td>
+                                    <td>{{employee.contactNo}}</td>
+                                    <td>{{employee.address}}</td>
+                                    <td>{{employee.startDate}}</td>
+                                    <td>{{employee.endDate}}</td>
+                                    <td>{{employee.designation}}</td>
+                                    <td>{{employee.basicSalary}}</td>
+
+                                    <td><button class="btn btn-primary pull-right" ng-click="deleteEmployee(employee._id)">Delete</button></td>
+
+
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </form>
+
+                    
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!--
+    </div>
+
+</div> -->
+
+</div>
